@@ -9,9 +9,6 @@ class TargetSpider(scrapy.Spider):
     def start_requests(self):
         link = 'https://www.target.com/p/tracfone-prepaid-apple-iphone-se-2nd-gen-64gb-black/-/A-82040163#lnk=sametab'
         request = scrapy.Request(url = link, callback = self.parse)
-        request.meta['proxy']: "http://lum-customer-monocl-zone-residential-country-us-session:ou0wrveuva1e@zproxy.lum-superproxy.io:22225"
-        # meta={"proxy": "http://lum-customer-c_38e12ee8-zone-data_center:m2qurc5zg71t@zproxy.lum-superproxy.io:22225"})
-        # meta={"proxy": "http://lum-customer-monocl-zone-residential-country-us-session-%s:ou0wrveuva1e@zproxy.lum-superproxy.io:22225"})
         yield request
 
     def parse(self, response):
