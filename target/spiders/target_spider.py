@@ -19,7 +19,7 @@ class TargetSpider(scrapy.Spider):
         #item['price'] = 
         images = response.xpath('//@src').extract()
         item['images'] = [image for image in images if (image.endswith('pjpeg') and 'wid=800' in image)]
-        item['description'] = response.xpath('//*[@id="specAndDescript"]/div[1]/div[2]/div//text()').get()
+        item['description'] = ' '.join(response.xpath('//*[@id="specAndDescript"]/div[1]/div[2]/div//text()').extract())
         item['highlights'] =  response.xpath('//*[@id="tabContent-tab-Details"]/div/div/div/div[1]/div/div/ul//text()').extract()
         # item['last_question'] = 
         # item['last_answer'] = 
