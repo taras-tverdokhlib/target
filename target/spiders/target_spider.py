@@ -17,7 +17,6 @@ class TargetSpider(scrapy.Spider):
 
         item['title'] = response.xpath('//*[@id="pageBodyContainer"]/div[1]/div[1]/h1/span/text()').get()
         #item['price'] = 
-        item['images'] = []
         images = response.xpath('//@src').extract()
         item['images'] = [image for image in images if (image.endswith('pjpeg') and 'wid=800' in image)]
         item['description'] = response.xpath('//*[@id="specAndDescript"]/div[1]/div[2]/div//text()').get()
